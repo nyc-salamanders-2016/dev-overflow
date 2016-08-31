@@ -1,0 +1,6 @@
+<div class='container'>
+  <h2>Questions:</h2>
+  <% @questions.each do |question| %>
+    <div><a href='/questions/<%= question.id %>'>Title:<%= question.title %> By:<%= question.user.username %> Posted at:<%= question.created_at.strftime("%b %d 20%y") %></div>
+    <% end %>
+</div>
