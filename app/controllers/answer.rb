@@ -6,7 +6,7 @@ end
 post '/answers' do
   answer = Answer.new(params[:answer])
   if answer.save
-    redirect'/questions/#{params[:asnwer][:question_id]}'
+    redirect'/questions/#{params[:answer][:question_id]}'
   else
     @question = Question.find(params[:answer][:question_id])
     @errors = answer.errors.full_messages
