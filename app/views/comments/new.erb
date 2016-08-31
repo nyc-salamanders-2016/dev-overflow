@@ -1,0 +1,16 @@
+<h1>create a new comment!</h1>
+
+<% if @errors %>
+  <span>Something went wrong:</span>
+  <ul class="error-list pad-b-2">
+    <% @errors.each do |error| %>
+      <li class="error-item"><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+<form action="/questions/<%= @question.id %>/comments" method='post'>
+  <textarea type='text' placeholder="Type your comment here..." name='comment_body'></textarea>
+  <input type='submit' value='comment'>
+</form>
