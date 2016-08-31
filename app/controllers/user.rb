@@ -1,15 +1,12 @@
-
 get '/users/new' do
-
   erb :'users/new'
 end
 
 post '/users' do
-
  user = User.new(params[:user])
   if user.save
     session[:id] = user.id
-    redirect '/users/new'
+    redirect '/'
   else
      @errors = user.errors.full_messages
      erb :'users/new'
@@ -21,9 +18,9 @@ get '/users/login' do
 end
 
 post '/users/login' do
-  @user = User.find_by(params[:username])
-  if @user && @user.authenticate(params[:password])
-    session[:user_id] = @user.id
+  user = User.find_by(username: params[:user][:username])
+  if user && user.authenticate(params[:user][:password])
+    session[:id] = user.id
     redirect '/'
   else
     @errors = ['Invalid credentials']
@@ -35,6 +32,3 @@ get '/users/logout' do
   session.clear
   redirect '/'
 end
-
-
-

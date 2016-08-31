@@ -19,13 +19,20 @@
 </head>
 <body>
   <nav>
-    <!-- <span>Dev Overflow</span> -->
+    <span id="logo">DevOverflow</span>
     <ul>
-      <li><a href="#">sign up</a></li>
-      <li><a href="/users/login">log in</a></li>
+
+      <% if current_user %>
+        <li><a href="/users/logout">log out</a></li>
+        <li><a href="#"><%= current_user.username %></a></li>
+        <li><a class="active" href="/">home</a></li>
+      <% else %>
+        <li><a href="/users/login">log in</a></li>
+        <li><a href="/users/new">sign up</a></li>
+        <li><a class="active" href="/">home</a></li>
+      <% end %>
     </ul>
   </nav>
-
   <%= yield %>
 </body>
 </html>

@@ -1,7 +1,13 @@
+body {
+  margin: 0;
+  padding-top: 50px;
+}
 nav {
   max-width: 100%;
-  /*display: block;*/
-  background-color: skyblue;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #422E39;
 }
 
 nav ul {
@@ -12,10 +18,28 @@ nav ul {
 }
 
 nav ul li {
-  display: inline; /* inline-block ? */
+  float: right;
+  border-right: 1px solid #fff;
 }
 
 nav ul li a {
-  padding: 8px;
-  background-color: #dddddd;
+  display: block;
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+
+#logo {
+  color: #fff;
+  float: left;
+  padding: 14px 16px;
+  display: block;
 }
