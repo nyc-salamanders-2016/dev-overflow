@@ -5,7 +5,7 @@ class CreateAnswers < ActiveRecord::Migration
       t.boolean :best_answer, default: false
       t.references :user, :answer
 
-      t.timestamps (null: false)
+      t.timestamps(null: false)
     end
   end
 end
