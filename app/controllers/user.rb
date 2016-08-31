@@ -1,3 +1,21 @@
+
+get '/users/new' do
+
+  erb :'users/new'
+end
+
+post '/users' do
+
+ user = User.new(params[:user])
+  if user.save
+    session[:id] = user.id
+    redirect '/users/new'
+  else
+     @errors = user.errors.full_messages
+     erb :'users/new'
+  end
+end
+
 get '/users/login' do
   erb :'/users/login'
 end
@@ -17,3 +35,6 @@ get '/users/logout' do
   session.clear
   redirect '/'
 end
+
+
+
