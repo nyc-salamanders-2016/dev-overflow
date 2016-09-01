@@ -27,6 +27,7 @@
   <title>DevOverflow</title>
 </head>
 <body>
+  <div id="nav">
   <nav>
     <span id="logo"><a href="/">DevOverflow</a></span>
     <ul>
@@ -43,7 +44,7 @@
         </li>
         <li><a href="/">home</a></li>
         <input class="search" type="text" name="search" placeholder="Search a Question">
-        <a id='ask' href='/questions/new'>Ask a question!</a>
+        <a id="ask" href='/questions/new'>Ask a question!</a>
       <% else %>
         <li><a href="/users/login">log in</a></li>
         <li><a href="/users/new">sign up</a></li>
@@ -52,11 +53,14 @@
       <% end %>
     </ul>
   </nav>
-
+  </div>
+<div id="yield">
   <%= yield %>
-
+</div>
+<div id="footer">
   <footer>
     Copyright (c) 2016 Copyright Holder All Rights Reserved.
   </footer>
+</div>
 </body>
 </html>
