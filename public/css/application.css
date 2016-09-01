@@ -39,6 +39,7 @@ nav ul li.dropdown {
 
 .dropdown-content {
     display: none;
+    margin-left: -86px;
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
@@ -46,10 +47,10 @@ nav ul li.dropdown {
 }
 .dropdown-content a {
     color: black;
-    padding: 12px 16px;
+    padding: 10px;
     text-decoration: none;
     display: block;
-    text-align: left;
+    text-align: center;
 }
 
 .dropdown-content a:hover {
@@ -68,6 +69,11 @@ nav ul li.dropdown {
   float: left;
   padding: 14px 16px;
   display: block;
+}
+
+#logo a {
+  color: white;
+  text-decoration: none;
 }
 
 footer {

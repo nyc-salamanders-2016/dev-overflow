@@ -15,6 +15,10 @@
     tabs.css give the tabs on the home page styling
   -->
   <link rel="stylesheet" href="/css/tabs.css">
+  <!--
+    search_bar.css is the style sheet for the search bar
+  -->
+  <link rel="stylesheet" href="/css/search_bar.css">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
@@ -24,7 +28,7 @@
 </head>
 <body>
   <nav>
-    <span id="logo">DevOverflow</span>
+    <span id="logo"><a href="/">DevOverflow</a></span>
     <ul>
 
       <% if current_user %>
@@ -38,9 +42,11 @@
           </div>
         </li>
         <li><a href="/">home</a></li>
+        <input class="search" type="text" name="search" placeholder="Search a Question">
       <% else %>
         <li><a href="/users/login">log in</a></li>
         <li><a href="/users/new">sign up</a></li>
+        <input class="search" type="text" name="search" placeholder="Search a Question">
         <!-- <li><a class="active" href="/">home</a></li> -->
       <% end %>
     </ul>

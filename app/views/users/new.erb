@@ -1,20 +1,49 @@
-<h1>Sign Up!</h1>
+<div class="container">
+  <!-- <h1>Sign Up!</h1> -->
 
-<% if @errors %>
-  <span>Something went wrong:</span>
-  <ul class="error-list pad-b-2">
-    <% @errors.each do |error| %>
-      <li class="error-item"><%= error %></li>
-    <% end %>
+  <% if @errors %>
+    <span>Something went wrong:</span>
+    <ul class="error-list pad-b-2">
+      <% @errors.each do |error| %>
+        <li class="error-item"><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <!-- start of tabs -->
+  <ul class = "tabs">
+    <li class="active">
+      <a href="#sign-up">Sign Up</a>
+    </li>
   </ul>
-<% end %>
+  <!-- end of tabs -->
 
-
-<form action='/users' method='post'>
-  <input type='text' name='user[first_name]' placeholder='first name'>
-  <input type='text' name='user[last_name]' placeholder='last name'>
-  <input type='text' name='user[username]' placeholder='username'>
-  <input type='email' name='user[email]' placeholder='email'>
-  <input type='password' name='user[password]' placeholder='password'>
-  <input type='submit' value='Sign up!'>
-</form>
+  <!-- start of tab content -->
+  <div class="content_container">
+    <h2>DevOverflow is better than DogeOverflow</h2>
+    <div id="sign-up">
+      <form action='/users' method='post'>
+        <fieldset>
+          <label for="first-name">First Name:</label></br>
+          <input type='text' name='user[first_name]'></br></br>
+          <label for="first-name">Last Name:</label></br>
+          <input type='text' name='user[last_name]'></br></br>
+          <label for="first-name">Username:</label></br>
+          <input type='text' name='user[username]'></br></br>
+          <label for="first-name">Email:</label></br>
+          <input type='email' name='user[email]'></br></br>
+          <label for="first-name">Password:</label></br>
+          <input type='password' name='user[password]'></br></br>
+          <input type='submit' value='Sign up!'>
+        </fieldset>
+        </br>
+        <fieldset>
+          <p>
+            Already have an account? <a href="/users/login">Log in</a>
+          </p>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+  <!-- end of tab content -->
+</div>
