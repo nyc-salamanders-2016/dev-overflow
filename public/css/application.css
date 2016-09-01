@@ -8,6 +8,7 @@ nav {
   top: 0;
   width: 100%;
   background-color: #422E39;
+  z-index: 999;
 }
 
 nav ul {
@@ -82,3 +83,57 @@ footer {
   color: #fff;
   background-color: #242729;
 }
+
+.button {
+    -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 10px;
+  background: #3f0d5c;
+  padding: 8px 10px 8px 10px;
+  text-decoration: none;
+
+}
+
+.vote-form{
+  position: relative;
+  right: 80px;
+  z-index: 1;
+}
+
+.question{
+  margin-top: -100px;
+  margin-bottom: 20px;
+ float: left;
+}
+
+.answer {
+  padding: 40px;
+}
+
+#footer{
+  bottom: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 9;
+}
+
+#ask {
+  width: 160px;
+  float: right;
+  /*padding: 5px 14px;*/
+  border-radius: 6px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 16px;
+  background: #999999;
+  padding: 4px 0px 4px 0px;
+  text-decoration: none;
+  margin-top: 11px;
+  margin-right: 10px;
+  text-align: center;
+}
+
+
