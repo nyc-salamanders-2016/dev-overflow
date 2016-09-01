@@ -29,12 +29,14 @@
 <div>
 
 <% if @question.comments %>
+
   <ul>
     <% @question.comments.each do |comment| %>
     <%= comment.body %><%= comment.author %>
     <% end %>
     <div><a href='/questions/<%= @question.id %>/comments/new'>Add comment:</a></div>
   </ul>
+
 <% end%>
 
 <% if current_user %>
@@ -51,6 +53,7 @@
   <ul>
     <% @question.answers.each do |answer| %>
 
+
       <form action="/answers/<%= answer.id %>/voteup" method="post">
         <button type="submit" name="submit_param" value="submit_value">VoteUp</button>
       </form>
@@ -60,8 +63,19 @@
       </form>
       <li><%= answer.body %></li>
 
+    <% if current_user == @question.author %>
+      <form action='/answers/<%= @answer.id %>' method='post'>
+        <input type='hidden' name='_method' value='put'/>
+        <button type='submit'>Best answer</button>
+      </form>
+    <% end %>
 
-      <div><a href='/answers/<%= answer.id %>/comments/new'>Add comment:</a></div>
+    <% if answer.best_answer %>
+      <p>&#x2713; best answer</p>
+    <%end%>
+
+    <div><a href='/answers/<%= @answer.id %>/comments/new'>Add comment:</a></div>
+
 
     <% if answer.comments %>
       <ul>
