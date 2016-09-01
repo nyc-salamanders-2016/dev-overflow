@@ -1,4 +1,5 @@
 post '/questions/:id/voteup' do
+  logged_in?
   question = Question.find(params[:id])
   vote = question.votes.build(value: 1, user: current_user).save
 
@@ -6,6 +7,7 @@ post '/questions/:id/voteup' do
 end
 
 post '/questions/:id/votedown' do
+  logged_in?
   question = Question.find(params[:id])
   vote = question.votes.build(value: -1, user: current_user).save
 
@@ -13,6 +15,7 @@ post '/questions/:id/votedown' do
 end
 
 post '/answers/:id/voteup' do
+  logged_in?
    answer = Answer.find(params[:id])
   vote = answer.votes.build(value: 1, user: current_user).save
 
@@ -21,7 +24,9 @@ post '/answers/:id/voteup' do
 end
 
 post '/answers/:id/votedown' do
-   answer = Answer.find(params[:id])
+  logged_in?
+
+  answer = Answer.find(params[:id])
   vote = answer.votes.build(value: -1, user: current_user).save
 
   question_id = answer.question.id

@@ -1,5 +1,6 @@
 
 get '/questions/:id/comments/new' do
+  logged_in?
   @question = Question.find(params[:id])
 
   erb :'comments/new'
@@ -20,6 +21,7 @@ post '/questions/:id/comments' do
 end
 
 get '/answers/:id/comments/new' do
+  logged_in?
 
   @answer = Answer.find(params[:id])
 
