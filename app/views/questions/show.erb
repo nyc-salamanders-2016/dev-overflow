@@ -70,7 +70,7 @@
       <div class="question">
       <li class="answer"><%= answer.body %></li>
 
-    <% if current_user == @question.author %>
+    <% if current_user == @question.author && !@question.has_best_answer? %>
       <form class='best_answer_form' action='/answers/<%=answer.id %>' method='post'>
         <input type='hidden' name='_method' value='put'/>
         <input type='submit' value='Best answer'>
