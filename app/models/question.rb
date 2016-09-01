@@ -15,6 +15,6 @@ class Question < ActiveRecord::Base
     if total < 0
       total = 0
     end
+    total
   end
-
 end
