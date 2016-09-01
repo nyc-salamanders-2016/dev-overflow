@@ -71,6 +71,9 @@
       <li class="answer"><%= answer.body %></li>
 
     <% if current_user == @question.author && !@question.has_best_answer? %>
+      <% if @errors %>
+        <%= @errors %>
+      <% end %>
       <form class='best_answer_form' action='/answers/<%=answer.id %>' method='post'>
         <input type='hidden' name='_method' value='put'/>
         <input type='submit' value='Best answer'>
