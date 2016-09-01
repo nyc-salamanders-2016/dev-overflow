@@ -37,7 +37,6 @@ put '/questions/:id' do
   else
     erb :'/questions/edit'
   end
-
 end
 
 delete '/questions/:id' do
