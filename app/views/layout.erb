@@ -11,11 +11,16 @@
     application.css is where you put your styles
   -->
   <link rel="stylesheet" href="/css/application.css">
+  <!--
+    tabs.css give the tabs on the home page styling
+  -->
+  <link rel="stylesheet" href="/css/tabs.css">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
+  <script src="/js/tabs.js"></script>
 
-  <title></title>
+  <title>DevOverflow</title>
 </head>
 <body>
   <nav>
@@ -33,6 +38,7 @@
       <% end %>
     </ul>
   </nav>
+
   <%= yield %>
 </body>
 </html>
