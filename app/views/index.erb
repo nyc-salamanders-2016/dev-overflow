@@ -1,0 +1,30 @@
+<div class="container">
+  <ul class = "tabs">
+    <h1>Top Questions</h1>
+    <li>
+      <a href="#hot">Hot</a>
+    </li>
+    <li class="active">
+      <a href="#interesting">Interesting</a>
+    </li>
+  </ul>
+  <!-- end of tabs -->
+
+  <!-- start of tab content -->
+  <div class="content_container">
+  <div id="interesting" class="">
+    <h2>Top</h2>
+      <% @recent_posts.each do |post| %>
+        <hr>
+          <p><a href="#"><%= post.title %></a></p>
+          <p>Asked by <a href="#"><%= post.author.username%></a></p>
+        <hr>
+      <% end %>
+  </div>
+
+  <div id="hot" class="tab-content">
+    <p>Hey, this tab will hold some different posts here..</p>
+  </div>
+</div>
+  <!-- end of tab content -->
+</div>

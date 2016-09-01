@@ -17,6 +17,8 @@ gem 'shotgun'
 gem 'pry'
 gem 'bcrypt'
 
+gem 'faker'
+
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'

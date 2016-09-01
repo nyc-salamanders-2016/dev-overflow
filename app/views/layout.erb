@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 
+  <!--
     normalize.css removes cross-browser differences in defaults, e.g.,
     differences in how form elements appear between Firefox and IE
     See: http://necolas.github.com/normalize.css/
@@ -11,13 +11,51 @@
     application.css is where you put your styles
   -->
   <link rel="stylesheet" href="/css/application.css">
+  <!--
+    tabs.css give the tabs on the home page styling
+  -->
+  <link rel="stylesheet" href="/css/tabs.css">
+  <!--
+    search_bar.css is the style sheet for the search bar
+  -->
+  <link rel="stylesheet" href="/css/search_bar.css">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
+  <script src="/js/tabs.js"></script>
 
-  <title></title>
+  <title>DevOverflow</title>
 </head>
 <body>
+  <nav>
+    <span id="logo"><a href="/">DevOverflow</a></span>
+    <ul>
+
+      <% if current_user %>
+        <!-- <li><a href="/users/logout">log out</a></li> -->
+        <li class="dropdown">
+          <a class="dropbtn active" href="#"><%= current_user.username %></a>
+          <div class="dropdown-content">
+            <a href="#">profile</a>
+            <a href="#">settings</a>
+            <a href="/users/logout">log out</a>
+          </div>
+        </li>
+        <li><a href="/">home</a></li>
+        <input class="search" type="text" name="search" placeholder="Search a Question">
+      <% else %>
+        <li><a href="/users/login">log in</a></li>
+        <li><a href="/users/new">sign up</a></li>
+        <input class="search" type="text" name="search" placeholder="Search a Question">
+        <!-- <li><a class="active" href="/">home</a></li> -->
+      <% end %>
+    </ul>
+  </nav>
+
   <%= yield %>
+
+  <footer>
+    Copyright (c) 2016 Copyright Holder All Rights Reserved.
+  </footer>
 </body>
 </html>
