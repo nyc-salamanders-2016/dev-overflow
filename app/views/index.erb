@@ -15,8 +15,10 @@
   <div id="interesting" class="">
     <h2>Top</h2>
       <% @recent_posts.each do |post| %>
-        <p><a href="#"><%= post.title %></a></p>
-        <p>Asked by <%= post.author.username%></p>
+        <hr>
+          <p><a href="#"><%= post.title %></a></p>
+          <p>Asked by <a href="#"><%= post.author.username%></a></p>
+        <hr>
       <% end %>
   </div>
 
