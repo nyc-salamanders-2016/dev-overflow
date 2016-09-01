@@ -1,0 +1,21 @@
+<div class=''>
+
+  <h3>"Welcome <%= current_user.username %>"</h3>
+  <p>Update profile information. Enter password or a new password and click 'save changes'.</p>
+
+  <form action='/users/<%= @user.id %>' method='post'>
+    <input type='hidden' name='_method' value='put'>
+    <label for="first-name">First Name:</label></br>
+      <input type='text' name='user[first_name]' value='<%= @user.first_name %>'></br>
+    <label for="first-name">Last Name:</label></br>
+      <input type='text' name='user[last_name]' value='<%= @user.last_name %>'></br>
+    <label for="first-name">Username:</label></br>
+      <input type='text' name='user[username]' value='<%= @user.username %>'></br>
+    <label for="first-name">Email:</label></br>
+      <input type='email' name='user[email]' value='<%= @user.email %>'></br></br>
+    <label for="first-name">Password:</label></br>
+      <input type='password' name='user[password]' value='<%= @user.password %>'></br>
+      <input type='submit' value='Save changes!'>
+  </form>
+
+</div>
