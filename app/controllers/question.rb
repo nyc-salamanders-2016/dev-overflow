@@ -5,8 +5,9 @@ end
 
 post '/questions' do
   @question = Question.new(params[:question])
+  @question.author = current_user
     if @question.save
-      redirect '/questions/index'
+      redirect "/questions/#{@question.id}"
     else
       @errors = @question.errors.full_messages
       erb :'/questions/new'
@@ -32,7 +33,7 @@ end
 
 put '/questions/:id' do
   @question = Question.find(params[:id])
-  @question.assign_attributes(params[:question])
+  @question.author = current_user
   if @question.save
     redirect '/questions'
   else

@@ -1,7 +1,7 @@
 <div class='container'>
   <h3>Edit a question!</h3>
   <form action='/questions/<%= question.id %>' method='post'>
-    <input type='hidden' name='_method' value='edit'/>
+    <input type='hidden' name='_method' value='put'/>
     <label for='question'>Title:</label>
       <input type='text' value='question[title]'>
     <label for='question'>Body:</label>

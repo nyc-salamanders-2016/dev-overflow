@@ -36,13 +36,14 @@
         <li class="dropdown">
           <a class="dropbtn active" href="#"><%= current_user.username %></a>
           <div class="dropdown-content">
-            <a href="#">profile</a>
+            <a href="/users/<%= current_user.id %>/profile">profile</a>
             <a href="#">settings</a>
             <a href="/users/logout">log out</a>
           </div>
         </li>
         <li><a href="/">home</a></li>
         <input class="search" type="text" name="search" placeholder="Search a Question">
+        <a id='ask' href='/questions/new'>Ask a question!</a>
       <% else %>
         <li><a href="/users/login">log in</a></li>
         <li><a href="/users/new">sign up</a></li>
