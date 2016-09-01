@@ -3,10 +3,12 @@ get '/answers/new' do
   erb :'answers/new'
 end
 
-post '/answers' do
-  answer = Answer.new(params[:answer])
+post '/questions/:id/answers' do
+  question = Question.find(params[:id])
+  answer = question.answers.build(params[:answer])
+
   if answer.save
-    redirect'/questions/#{params[:asnwer][:question_id]}'
+    redirect"/questions/#{answer.question.id}"
   else
     @question = Question.find(params[:answer][:question_id])
     @errors = answer.errors.full_messages

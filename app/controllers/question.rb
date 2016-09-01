@@ -20,7 +20,8 @@ end
 
 get '/questions/:id' do
   @question = Question.find(params[:id])
-  @anwer = Answer.find_by(params[:user_id])
+  @answer = Answer.find_by(params[:user_id])
+
   erb :'/questions/show'
 end
 
