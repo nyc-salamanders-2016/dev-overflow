@@ -2,6 +2,7 @@ $(document).ready(function() {
     $('.upvote-question').submit(function(event) {
       event.preventDefault();
 
+
       $.ajax({
         method: 'POST',
         url: $(event.target).attr('action')
@@ -44,7 +45,23 @@ $(document).ready(function() {
         url: $(event.target).attr('action')
       })
         .done(function (response) {
-          
+
         })
     });
+
+  $('best_answer_form').submit(function(event) {
+    event.preventDefault();
+
+  $.ajax({
+    method: 'put',
+    url: $(event.target).attr('action')
+  })
+    .done(function(response){
+
+    });
+
+
+
+  })
+
 });

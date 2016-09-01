@@ -21,7 +21,12 @@ put '/answers/:id' do
   answer = Answer.find(params[:id])
   answer.best_answer = true
   answer.save
-  redirect "/questions/#{answer.question.id}"
+
+  if request.xhr?
+
+  else
+    redirect "/questions/#{answer.question.id}"
+  end
 end
 
 
