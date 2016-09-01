@@ -1,0 +1,49 @@
+<div class=''>
+  <h3><%= @question.title %></h3> by:<%= @question.user.username %> at:<%= @question.created_at.strftime("%b %d 20%y") %>
+  <% if current_user %>
+  <% if @question.user.id == current_user.id %>
+  <form action='/questions/<%=@question.id%>/edit' method='post'>
+    <input type='hidden' name='_method' value='edit'/>
+    <button type='submit'>Edit</button>
+  </form>
+  <form action='/questions/<%=@question.id%>' method='post'>
+    <input type='hidden' name='_method' value='delete'/>
+    <button type='submit'>Delete</button>
+  </form>
+  <% end %>
+  <% end %>
+</div>
+
+<div class=''>
+  <%= @question.body %>
+<div>
+
+<% if @question.comments %>
+<ul>
+  <% @question.comment.each do |comment| %>
+  <%= comment.body %><%= comment.author %>
+  <% end %>
+  <div><a href=''>Add comment:</a></div>
+</ul>
+<% end%>
+
+<% if current_user %>
+<h3>Add answer:</h3>
+<form action='/answers' method='post'>
+  <input type='text' name='answer[body]'>
+  <input type='text' name='tag[name]'>
+  <button type='submit'>Add answer!</button>
+</form>
+<% end %>
+
+<h3>Answers:</h3>
+<% if @answer %>
+  <ul>
+    <% @question.answers.each do |answer| %>
+    <% answer.body %>
+    <% end %>
+    <div><a href=''>Add comment:</a></div>
+  </ul>
+<% end %>
+
+
