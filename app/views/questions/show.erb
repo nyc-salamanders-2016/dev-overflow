@@ -71,15 +71,16 @@
       <li class="answer"><%= answer.body %></li>
 
     <% if current_user == @question.author %>
-      <form id='best_answer_form' action='/answers/<%= @answer.id %>' method='post'>
+      <form class='best_answer_form' action='/answers/<%=answer.id %>' method='post'>
         <input type='hidden' name='_method' value='put'/>
-        <button type='submit'>Best answer</button>
+        <input type='submit' value='Best answer'>
       </form>
     <% end %>
-
-    <% if answer.best_answer %>
-      <p>&#x2713; best answer</p>
-    <%end%>
+    <div class=''>
+      <% if answer.best_answer %>
+        <%= erb :'/questions/_best_answer' %>
+      <%end%>
+    </div>
 
     <div><a href='/answers/<%= @answer.id %>/comments/new'>Add comment:</a></div>
 

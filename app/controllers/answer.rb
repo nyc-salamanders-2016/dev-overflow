@@ -6,6 +6,7 @@ end
 post '/questions/:id/answers' do
   question = Question.find(params[:id])
   answer = question.answers.build(params[:answer])
+  answer.author = current_user
 
   if answer.save
     redirect"/questions/#{answer.question.id}"
@@ -19,11 +20,13 @@ end
 
 put '/answers/:id' do
   answer = Answer.find(params[:id])
+
   answer.best_answer = true
   answer.save
 
   if request.xhr?
 
+    erb :'/questions/_best_answer', layout: false
   else
     redirect "/questions/#{answer.question.id}"
   end

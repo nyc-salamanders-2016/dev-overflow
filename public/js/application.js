@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
     $('.upvote-question').submit(function(event) {
       event.preventDefault();
 
@@ -49,14 +50,20 @@ $(document).ready(function() {
         })
     });
 
-  $('best_answer_form').submit(function(event) {
+
+  $('.best_answer_form').on("submit", function(event) {
+    console.log('hello')
     event.preventDefault();
 
   $.ajax({
-    method: 'put',
+
+    method: "PUT",
     url: $(event.target).attr('action')
   })
     .done(function(response){
+
+      $(event.target).after(response)
+      $('.best_answer_form').hide()
 
     });
 
