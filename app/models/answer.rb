@@ -4,4 +4,12 @@ class Answer < ActiveRecord::Base
 
   has_many :comments, :as => :commentable
   has_many :votes, :as => :votable
+
+  def total_votes
+    total = self.votes.reduce(0) { |sum, vote| sum + vote.value}
+
+    if total < 0
+      total = 0
+    end
+  end
 end
