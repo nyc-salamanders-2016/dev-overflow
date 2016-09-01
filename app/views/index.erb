@@ -16,7 +16,7 @@
     <h2>Top</h2>
       <% @recent_posts.each do |post| %>
         <hr>
-          <p><a href="#"><%= post.title %></a></p>
+          <p><a href="/questions/<%= post.id %>"><%= post.title %></a></p>
           <p>Asked by <a href="#"><%= post.author.username%></a></p>
         <hr>
       <% end %>
