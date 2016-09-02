@@ -1,11 +1,11 @@
 <div class=''>
   <article id="<%= @question.id %>">
     <form action="/questions/<%= @question.id %>/voteup" method="post">
-      <button type="submit" name="submit_param" value="submit_value">Upvote</button>
+      <input type="submit" value="Upvote">
     </form>
     <span><%= @question.total_votes %></span>
-    <form action="/questions/<%= @question.id %>/votedown" method="post">
-    <button type="submit" name="submit_param" value="submit_value">Downvote</button>
+    <form class="downvote-question" action="/questions/<%= @question.id %>/votedown" method="post">
+    <input type="submit" value="Downvote">
     </form>
     <h3><%= @question.title %></h3>
     <p>by: <%= @question.author.username %> at: <%= @question.created_at.strftime("%b %d 20%y") %></p>
@@ -54,11 +54,11 @@
     <% @question.answers.each do |answer| %>
 
 
-      <form action="/answers/<%= answer.id %>/voteup" method="post">
-        <button type="submit" name="submit_param" value="submit_value">VoteUp</button>
+      <form class="upvote-answer" action="/answers/<%= answer.id %>/voteup" method="post">
+        <input type="submit" value="VoteUp">
       </form>
       <span><%= answer.total_votes %></span>
-      <form action="/answers/<%= answer.id %>/votedown" method="post">
+      <form class="downvote-answer" action="/answers/<%= answer.id %>/votedown" method="post">
         <button type="submit" name="submit_param" value="submit_value">DownVote</button>
       </form>
       <li><%= answer.body %></li>
