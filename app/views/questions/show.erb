@@ -1,32 +1,36 @@
-<div class=''>
+<div class='container'>
   <article id="<%= @question.id %>">
-    <form action="/questions/<%= @question.id %>/voteup" method="post">
-      <input type="submit" value="Upvote">
+
+    <form class="vote-form" action="/questions/<%= @question.id %>/voteup" method="post">
+      <button class="button up" type="submit" name="submit_param" value="submit_value">Upvote</button>
     </form>
-    <span><%= @question.total_votes %></span>
-    <form class="downvote-question" action="/questions/<%= @question.id %>/votedown" method="post">
-    <input type="submit" value="Downvote">
+    <span class="vote-form"><%= @question.total_votes %></span>
+    <form class="vote-form" action="/questions/<%= @question.id %>/votedown" method="post">
+    <button class="button down" type="submit" name="submit_param" value="submit_value">Downvote</button>
     </form>
-    <h3><%= @question.title %></h3>
-    <p>by: <%= @question.author.username %> at: <%= @question.created_at.strftime("%b %d 20%y") %></p>
-    <!-- <% if current_user %>
-      <% if @question.author.id == current_user.id %>
-        <form action='/questions/<%=@question.id%>/edit' method='post'>
-          <input type='hidden' name='_method' value='edit'/>
-          <button type='submit'>Edit</button>
-        </form>
-        <form action='/questions/<%=@question.id%>' method='post'>
-          <input type='hidden' name='_method' value='delete'/>
-          <button type='submit'>Delete</button>
-        </form>
-      <% end %>
-    <% end %> -->
+
+    <div class="question">
+      <h3><%= @question.title %></h3>
+      <p>by: <%= @question.author.username %> at: <%= @question.created_at.strftime("%b %d 20%y") %></p>
+      <!-- <% if current_user %>
+        <% if @question.author.id == current_user.id %>
+          <form action='/questions/<%=@question.id%>/edit' method='post'>
+            <input type='hidden' name='_method' value='edit'/>
+            <button type='submit'>Edit</button>
+          </form>
+          <form action='/questions/<%=@question.id%>' method='post'>
+            <input type='hidden' name='_method' value='delete'/>
+            <button type='submit'>Delete</button>
+          </form>
+        <% end %>
+      <% end %> -->
+      <%= @question.body %>
+    </div>
   </article>
 </div>
 
-<div class=''>
-  <%= @question.body %>
-<div>
+<div class='container'>
+
 
 <% if @question.comments %>
 
@@ -54,14 +58,17 @@
     <% @question.answers.each do |answer| %>
 
 
-      <form class="upvote-answer" action="/answers/<%= answer.id %>/voteup" method="post">
-        <input type="submit" value="VoteUp">
+
+      <form class="vote-form" action="/answers/<%= answer.id %>/voteup" method="post">
+        <button class="button" type="submit" name="submit_param" value="submit_value">VoteUp</button>
       </form>
-      <span><%= answer.total_votes %></span>
-      <form class="downvote-answer" action="/answers/<%= answer.id %>/votedown" method="post">
-        <button type="submit" name="submit_param" value="submit_value">DownVote</button>
+      <span class="vote-form"><%= answer.total_votes %></span>
+      <form class="vote-form" action="/answers/<%= answer.id %>/votedown" method="post">
+        <button class="button" type="submit" name="submit_param" value="submit_value">DownVote</button>
+
       </form>
-      <li><%= answer.body %></li>
+      <div class="question">
+      <li class="answer"><%= answer.body %></li>
 
     <% if current_user == @question.author %>
       <form action='/answers/<%= @answer.id %>' method='post'>
@@ -87,3 +94,4 @@
     <% end %>
   </ul>
 <% end %>
+</div>

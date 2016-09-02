@@ -38,3 +38,17 @@ get '/users/logout' do
   session.clear
   redirect '/'
 end
+
+get '/users/:id/profile' do
+  @user = User.find_by(id: params[:id])
+  erb :'/users/profile'
+end
+
+put '/users/:id' do
+  @user = User.find(params[:id])
+  if @user.update(params[:user])
+    redirect '/'
+  else
+    erb :'/users/profile'
+  end
+end

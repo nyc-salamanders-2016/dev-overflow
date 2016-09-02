@@ -17,7 +17,7 @@
       <% @recent_posts.each do |post| %>
         <hr>
           <p><a href="/questions/<%= post.id %>"><%= post.title %></a></p>
-          <p>Asked by <a href="#"><%= post.author.username%></a></p>
+          <p>Asked by <a href="/users/<%= post.author.id %>/profile"><%= post.author.username %></a></p>
         <hr>
       <% end %>
   </div>
