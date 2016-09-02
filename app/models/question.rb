@@ -17,4 +17,8 @@ class Question < ActiveRecord::Base
     end
     total
   end
+
+  def has_best_answer?
+    self.answers.any? { |answer| answer.best_answer }
+  end
 end
