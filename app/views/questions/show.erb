@@ -1,5 +1,6 @@
 <div class='container'>
   <article id="<%= @question.id %>">
+
     <form class="vote-form" action="/questions/<%= @question.id %>/voteup" method="post">
       <button class="button up" type="submit" name="submit_param" value="submit_value">Upvote</button>
     </form>
@@ -57,12 +58,14 @@
     <% @question.answers.each do |answer| %>
 
 
+
       <form class="vote-form" action="/answers/<%= answer.id %>/voteup" method="post">
         <button class="button" type="submit" name="submit_param" value="submit_value">VoteUp</button>
       </form>
       <span class="vote-form"><%= answer.total_votes %></span>
       <form class="vote-form" action="/answers/<%= answer.id %>/votedown" method="post">
         <button class="button" type="submit" name="submit_param" value="submit_value">DownVote</button>
+
       </form>
       <div class="question">
       <li class="answer"><%= answer.body %></li>

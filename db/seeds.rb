@@ -6,3 +6,5 @@
   password: Faker::Internet.password(8)
   )
 end
+
+
